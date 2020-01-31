@@ -27,7 +27,7 @@ def nim_sum(heaps):
 
     # this lets me compare two heaps at a time and eventually find the nim_sum
     for i in range(len(heaps) - 1):
-        value = heaps[i]^heaps[i+1]
+        value = heaps[i] ^ heaps[i + 1]
         heaps[i + 1] = value
 
     return value
@@ -43,24 +43,22 @@ def nim_sum(heaps):
 #          If the nim_sum is 0, then return 0, 0
 
 
-
 def find_heap(heaps, nim_sum):
-    if nim_sum==0:
-        return 0,0
+    if nim_sum == 0:
+        return 0, 0
 
-    indivsums = []
+    indivsums = heaps.copy()
     for i in range(len(heaps)):
         indivsums[i] = nim_sum(heaps[i])
 
     remove = 0
     spot = 0
     for i in range(len(indivsums)):
-        if indivsums[i]<heaps[i]:
-            remove = heaps[i]-indivsums[i]
+        if indivsums[i] < heaps[i]:
+            remove = heaps[i] - indivsums[i]
             spot = i
 
-
-    return remove,spot+1
+    return remove, spot + 1
 
 
 def main():
@@ -91,8 +89,8 @@ def main():
             if y[1] == 0 and y[0] == 0:
                 print("Lose Game")
             else:
-                print("Remove "+str(y[0] + " counters from Heap "+str(y[1])))
-                
+                print("Remove " + str(y[0])+ " counters from Heap " + str(y[1]))
+
     data.close()
 
 
